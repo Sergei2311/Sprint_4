@@ -36,7 +36,6 @@ public class BaseTest {
         driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
     }
-
     @After
     public void tearDown() {
         driver.quit();

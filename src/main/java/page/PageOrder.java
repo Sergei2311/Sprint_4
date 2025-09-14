@@ -77,5 +77,4 @@ public class PageOrder {
         new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(nextButton));
         assertTrue("Кнопка Далее отображается - ", driver.findElement(nextButton).isDisplayed());
     }
-
 }

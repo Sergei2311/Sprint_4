@@ -36,7 +36,6 @@ public class TestSamokatUIQuestionAnswer extends BaseTest {
                         "Да, обязательно. Всем самокатов! И Москве, и Московской области."}
         };
     }
-
     @Test
     public void testDropListImportantQuestions() {
         samokatMainPage.openPage(); //открыть страницу самоката

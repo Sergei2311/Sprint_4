@@ -66,4 +66,5 @@ public class SamokatMainPage {
         elementAnswer = new WebDriverWait(driver, duration).until(ExpectedConditions.visibilityOfElementLocated(answerLocator));
         return elementAnswer.getText();
     }
+
 }

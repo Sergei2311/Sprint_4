@@ -50,5 +50,4 @@ public class TestSamokatUI extends BaseTest {
         samokatMainPage.pressOrderDownButton();  //нажать на нижнюю кнопку Заказать
         pageOrder.displeidBattonNextStatus();   //в открывшемся окне отображается кнопка Далее
     }
-
 }

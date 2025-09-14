@@ -59,5 +59,4 @@ public class PageRent {
         new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(buttonLookStatus));
         return driver.findElement(buttonLookStatus).isDisplayed();
     }
-
 }
