@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
-
 public class PageRent {
     public WebDriver driver;
     //Поле "Когда привезти самокат" с датой календаря
@@ -29,6 +27,7 @@ public class PageRent {
     public By buttonLookStatus = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Посмотреть статус']");
     int waitTime = 3;
     Duration duration = Duration.ofSeconds(waitTime);
+
     public PageRent(WebDriver driver) {
         this.driver = driver;
     }
@@ -56,9 +55,9 @@ public class PageRent {
     }
 
     //Проверяем в окне "Заказ оформлен" наличие кнопки "Посмотреть статус"
-    public void displeidButtonLookStatus() {
+    public boolean displeidButtonLookStatus() {
         new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(buttonLookStatus));
-        assertTrue("Заказ оформлен - ", driver.findElement(buttonLookStatus).isDisplayed());
+        return driver.findElement(buttonLookStatus).isDisplayed();
     }
 
 }

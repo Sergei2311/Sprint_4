@@ -18,8 +18,9 @@ public class SamokatMainPage {
     //  Нижняя кнопка "Заказать"
     public By orderDownButton = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']");
     //Задаем время ожидания
-    int waitTime = 3;
+    int waitTime = 10;
     Duration duration = Duration.ofSeconds(waitTime);
+
     public SamokatMainPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -55,13 +56,14 @@ public class SamokatMainPage {
     public String scrollPushQuestionReadAnswer(String question, String answer) {
         By questionLokator = By.xpath(String.format("//div[contains(text(), '%s')]", question));
         WebElement elementQuestion = driver.findElement(questionLokator);
+        // дожидаемся кликабельности вопроса
+        elementQuestion = new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(questionLokator));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elementQuestion);
         elementQuestion.click();
-        new WebDriverWait(driver, duration);
         By answerLocator = By.xpath(String.format("//p[contains(text(), '%s')]", answer));
         WebElement elementAnswer = driver.findElement(answerLocator);
+        //дожидаемся видимости ответа
+        elementAnswer = new WebDriverWait(driver, duration).until(ExpectedConditions.visibilityOfElementLocated(answerLocator));
         return elementAnswer.getText();
     }
-
-
 }

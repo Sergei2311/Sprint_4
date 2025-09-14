@@ -26,18 +26,44 @@ public class PageOrder {
     public By nextButton = By.xpath(".//button[text() = 'Далее']");
     int waitTime = 10;
     Duration duration = Duration.ofSeconds(waitTime);
+
     public PageOrder(WebDriver driver) {
         this.driver = driver;
     }
 
-    // заполняем поля Имя, Фамилия, адрес, телефон и метро. Карточки "Кому привезти самокат"
-    public void writeOrder(String name, String surname, String adress, String metro, String phone) {
+    //заполнить поле "Имя"
+    public void writeName(String name) {
         driver.findElement(nameField).sendKeys(name);
+    }
+
+    //заполнить поле "Фамилия"
+    public void writeSurname(String surname) {
         driver.findElement(surnameField).sendKeys(surname);
+    }
+
+    //заполнить поле "Адрес"
+    public void writeAdress(String adress) {
         driver.findElement(adressField).sendKeys(adress);
+    }
+
+    //заполнить поле "Телефон"
+    public void writePhone(String phone) {
         driver.findElement(telephoneField).sendKeys(phone);
+    }
+
+    //заполнить поле "Метро"
+    public void writeMetro(String metro) {
         driver.findElement(metroNameField).sendKeys(metro);
         driver.findElement(metroScroll).click();
+    }
+
+    // шаг - заполнить карточку "Кому привезти самокат"
+    public void writeOrder(String name, String surname, String adress, String metro, String phone) {
+        writeName(name);
+        writeSurname(surname);
+        writeAdress(adress);
+        writeMetro(metro);
+        writePhone(phone);
     }
 
     // ждем и нажимаем на кнопку Далее
