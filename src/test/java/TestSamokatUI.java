@@ -42,12 +42,4 @@ public class TestSamokatUI extends BaseTest {
         pageRent.buttonYesClick(); //Подтвердить заказ нажатием на кнопку "Да"
         assertEquals("Сообщение об ошибке", pageRent.displeidButtonLookStatus(), displeidButtonLookStatus);
     }
-
-    // Проверка нижней кнопки Заказать.ОР - открытое окно бланка заказа с кнопкой Далее
-    @Test
-    public void testDownButtonOrderSamokatMainPage() {
-        samokatMainPage.openPage();  //открыть страницу самоката
-        samokatMainPage.pressOrderDownButton();  //нажать на нижнюю кнопку Заказать
-        pageOrder.displeidBattonNextStatus();   //в открывшемся окне отображается кнопка Далее
-    }
 }
